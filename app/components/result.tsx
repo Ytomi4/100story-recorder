@@ -46,8 +46,8 @@ export const Result = () => {
                     layout = "fill"
                     className="-z-10 opacity-30"
                 />
-                <div className="relative pt-8 px-[4vh] w-full text-center">{title}</div>
-                <div className="relative pt-5 px-[4vh] text-sm ">{summary}</div>
+                <div className="relative pt-8 px-[4vh] w-full text-center text-lg">{title}</div>
+                <div className="relative pt-5 px-[4vh] text-base ">{summary}</div>
             </div>
             <div className="relative flex mt-4">
                 <button className="px-3" onClick={handleDownload}>
