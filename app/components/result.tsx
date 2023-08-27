@@ -1,10 +1,12 @@
 import { useChat } from "ai/react"
+import { useRouter } from "next/navigation";
 import Image from "next/image"
 import { getTitle, getSummary } from "../utils/chatTextParser"
 import { FaDownload } from 'react-icons/fa'
 
 export const Result = () => {
     const { messages } = useChat({id: 'main'})
+    const router = useRouter()
 
     const title = messages.length > 1 ? <p>{getTitle(messages[messages.length - 1].content)}</p> : <p></p>
     const summary = messages.length > 1 ? <p>{getSummary(messages[messages.length -1].content)}</p> : <p></p>
@@ -36,7 +38,7 @@ export const Result = () => {
         downloadFile('RecordedText', messages[0].content)
         setTimeout(() => {downloadFile('Summary', messages[1].content)}, 1)
     }
-    
+
     return (
         <div className="flex flex-col items-center p-24">
             <div className="relative h-[72vh] w-[40.5vh] outline-double">
@@ -49,11 +51,12 @@ export const Result = () => {
                 <div className="relative pt-8 px-[4vh] w-full text-center text-lg">{title}</div>
                 <div className="relative pt-5 px-[4vh] text-base ">{summary}</div>
             </div>
-            <div className="relative flex mt-4">
+            <div className="relative flex mt-5">
                 <button className="px-3" onClick={handleDownload}>
                     <FaDownload/>
                 </button>
             </div>
+            <button className="mt-4" onClick={(e) => {router.push('/')}}>Back to Home</button>
 
         </div>
     )
