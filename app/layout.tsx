@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Shippori_Mincho } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const shippori_mincho = Shippori_Mincho({weight: "600", subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: '百物語Recorder',
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={inter.className}>{children}</body>
+      <body className={shippori_mincho.className}>{children}</body>
     </html>
   )
 }
